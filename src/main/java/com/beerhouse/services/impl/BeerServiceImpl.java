@@ -1,7 +1,8 @@
-package com.beerhouse.services;
+package com.beerhouse.services.impl;
 
 import com.beerhouse.domain.entity.Beer;
 import com.beerhouse.domain.repository.BeerRepository;
+import com.beerhouse.services.BeerService;
 import com.beerhouse.services.exceptions.BeerAlreadyExistsException;
 import com.beerhouse.services.exceptions.BeerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class BeerServiceImpl implements BeerService{
+public class BeerServiceImpl implements BeerService {
 
     @Autowired
     private BeerRepository beerRepository;
