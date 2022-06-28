@@ -1,0 +1,363 @@
+{
+	"info": {
+		"_postman_id": "3d4ec25d-e9a3-40ee-9d3b-18dba2179e88",
+		"name": "CraftBeer - Sensedia",
+		"description": "CraftBeer is a beer manager for a brewery.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5931348"
+	},
+	"item": [
+		{
+			"name": "Create Beer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Beer Name\",\r\n    \"ingredients\": \"Ingredients\",\r\n    \"alcoholContent\": \"% of alcohol\",\r\n    \"price\": 0.00,\r\n    \"category\": \"Category\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/beers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beers"
+					]
+				},
+				"description": "Create a beer object."
+			},
+			"response": [
+				{
+					"name": "Create Beer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lager Awesome\",\r\n    \"ingredients\": \"Malt, Hop, Barley\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 15.5,\r\n    \"category\": \"Lager\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/beers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Lager Awesome\",\r\n    \"ingredients\": \"Malt, Hop, Barley\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 15.5,\r\n    \"category\": \"Lager\",\r\n    \"_links\": {\r\n        \"self\": {\r\n            \"href\": \"http://localhost:9000/beers/1\"\r\n        },\r\n        \"all\": {\r\n            \"href\": \"http://localhost:9000/beers\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit Beer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Beer Name Changed\",\r\n    \"ingredients\": \"Ingredients Changed\",\r\n    \"alcoholContent\": \"% of alcohol Changed\",\r\n    \"price\": 0.01,\r\n    \"category\": \"Category Changed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/beers/{{beerId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beers",
+						"{{beerId}}"
+					]
+				},
+				"description": "Edit a beer object totaly (don't forget any field, it will be changed to null)"
+			},
+			"response": [
+				{
+					"name": "Edit Beer",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Lager not so Awesome\",\r\n    \"ingredients\": \"Malt, Hop, Barley\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 0.01\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/beers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beers",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Lager Not so Awesome\",\r\n    \"ingredients\": \"Malt, Hop, Barley\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 0.01,\r\n    \"category\": null,\r\n    \"_links\": {\r\n        \"self\": {\r\n            \"href\": \"http://localhost:9000/beers/1\"\r\n        },\r\n        \"all\": {\r\n            \"href\": \"http://localhost:9000/beers\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Edit Partial Beer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Beer Name Changed\",\r\n    \"ingredients\": \"Ingredients Changed\",\r\n    \"alcoholContent\": \"% of alcohol Changed\",\r\n    \"price\": 0.01,\r\n    \"category\": \"Category Changed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/beers/{{beerId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beers",
+						"{{beerId}}"
+					]
+				},
+				"description": "Edit beer object partialy (send all fields that you want to change)"
+			},
+			"response": [
+				{
+					"name": "Edit Partial Beer",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": \"Awesomes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/beers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beers",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Lager Awesome\",\r\n    \"ingredients\": \"Malt, Hop, Barley\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 0.00,\r\n    \"category\": \"Awesomes\",\r\n    \"_links\": {\r\n        \"self\": {\r\n            \"href\": \"http://localhost:9000/beers/1\"\r\n        },\r\n        \"all\": {\r\n            \"href\": \"http://localhost:9000/beers\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "List Beers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/beers",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beers"
+					]
+				},
+				"description": "Return all beers registered."
+			},
+			"response": [
+				{
+					"name": "List Beers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"_embedded\": {\r\n        \"beerList\": [\r\n            {\r\n                \"id\": 1,\r\n                \"name\": \"Lager Awesome\",\r\n                \"ingredients\": \"Malt, Hop, Barley\",\r\n                \"alcoholContent\": \"5%\",\r\n                \"price\": 0.00,\r\n                \"category\": \"Lager\",\r\n                \"_links\": {\r\n                    \"self\": {\r\n                        \"href\": \"http://localhost:9000/beers/1\"\r\n                    },\r\n                    \"all\": {\r\n                        \"href\": \"http://localhost:9000/beers\"\r\n                    }\r\n                }\r\n            }\r\n        ]\r\n    },\r\n    \"_links\": {\r\n        \"self\": {\r\n            \"href\": \"http://localhost:9000/beers\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Beer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/beers/{{beerId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beers",
+						"{{beerId}}"
+					]
+				},
+				"description": "Return beer with id sent."
+			},
+			"response": [
+				{
+					"name": "Get Beer",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beers",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\r\n    \"id\": 1,\r\n    \"name\": \"Lager Awesome\",\r\n    \"ingredients\": \"Malt, Hop, Barley\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 0.00,\r\n    \"category\": \"Lager\",\r\n    \"_links\": {\r\n        \"self\": {\r\n            \"href\": \"http://localhost:9000/beers/1\"\r\n        },\r\n        \"all\": {\r\n            \"href\": \"http://localhost:9000/beers\"\r\n        }\r\n    }\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Beer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/beers/{{beerId}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"beers",
+						"{{beerId}}"
+					]
+				},
+				"description": "Delete beer with id sent (if it exists)."
+			},
+			"response": [
+				{
+					"name": "Delete Beer",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/beers/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"beers",
+								"1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:9000",
+			"type": "string"
+		},
+		{
+			"key": "beerId",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
