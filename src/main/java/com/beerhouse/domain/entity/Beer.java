@@ -7,7 +7,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
+/**
+ * Beer Entity
+ *
+ * @author Jonas B. Bernardi <jonasbbernardi@gmail.com>
+ */
 @Entity
 @Table(name = "beer")
 @Data
@@ -19,6 +25,7 @@ public class Beer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank(message = "Nome deve ser preenchido")
     private String name;
 
     private String ingredients;
@@ -27,7 +34,7 @@ public class Beer {
     private String alcoholContent;
 
     @Column(precision = 10, scale = 2)
-    @Min(0)
+    @Min(value = 0, message = "Preço deve ser maior que zero")
     private Double price;
 
     private String category;

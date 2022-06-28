@@ -14,13 +14,18 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.Map;
 
+/**
+ * Beers endpoints controller
+ *
+ * @author Jonas B. Bernardi <jonasbbernardi@gmail.com>
+ */
 @RestController
 @RequestMapping("/beers")
 @Validated
 public class BeersController {
 
-    BeerService service;
-    BeerAssembler assembler;
+    private BeerService service;
+    private BeerAssembler assembler;
 
     public BeersController(BeerService service, BeerAssembler assembler) {
         this.service = service;

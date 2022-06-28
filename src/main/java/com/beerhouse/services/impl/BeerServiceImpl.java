@@ -5,17 +5,24 @@ import com.beerhouse.domain.repository.BeerRepository;
 import com.beerhouse.services.BeerService;
 import com.beerhouse.services.exceptions.BeerAlreadyExistsException;
 import com.beerhouse.services.exceptions.BeerNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Beer service implementation
+ *
+ * @author Jonas B. Bernardi <jonasbbernardi@gmail.com>
+ */
 @Service
 public class BeerServiceImpl implements BeerService {
 
-    @Autowired
     private BeerRepository beerRepository;
+
+    public BeerServiceImpl(BeerRepository beerRepository){
+        this.beerRepository = beerRepository;
+    }
 
     @Override
     public List<Beer> list() {

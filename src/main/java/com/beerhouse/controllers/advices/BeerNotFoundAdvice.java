@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Handler for exception when beer was not found
+ *
+ * @author Jonas B. Bernardi <jonasbbernardi@gmail.com>
+ */
 @ControllerAdvice
 public class BeerNotFoundAdvice {
 

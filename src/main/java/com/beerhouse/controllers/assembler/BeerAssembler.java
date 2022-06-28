@@ -14,6 +14,11 @@ import java.util.stream.Collectors;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+/**
+ * Beer assembler component to get linked entity on RestAPI
+ *
+ * @author Jonas B. Bernardi <jonasbbernardi@gmail.com>
+ */
 @Component
 public class BeerAssembler implements RepresentationModelAssembler<Beer, EntityModel<Beer>> {
     @Override
